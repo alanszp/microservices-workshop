@@ -189,72 +189,6 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Llamados externos
-
-                            ![call](https://media.giphy.com/media/o2V3s21kb9jPO/giphy.gif)
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
-                                import {calculatePrice} from '../deliveryService'
-                                
-                                export function cartTotal(items, deliveryType) {
-                                    return _.sum(items, i => i.price) +
-                                        calculatePrice(items, deliveryType);
-                                }
-                            </code></pre>
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            Introducción de **ASINCRONISMO**
-
-                            donde antes no lo había
-
-                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers="3,5">
-                                import {calculatePrice} from '../deliveryService'
-
-                                export function async cartTotal(items, deliveryType) {
-                                    return _.sum(items, i => i.price) +
-                                        await calculatePrice(items, deliveryType);
-                                }
-                            </code></pre>
-                        </textarea>
-                    </section>
-                  
-                    <section data-markdown>
-                        <textarea data-template>
-                            Introducción de **ERRORES**
-
-                            donde antes no lo había
-
-                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
-                                import {calculatePrice} from '../deliveryService'
-
-                                export function async cartTotal(items, deliveryType) {
-                                    try {
-                                        let deliveryPrice = await calculatePrice(
-                                            items,
-                                            deliveryType
-                                        );
-
-                                        return _.sum(items, i => i.price) +
-                                            deliveryPrice;
-                                    } catch (err) {
-                                        throw new CartDependencyError(err);
-                                    }
-                                }
-                            </code></pre>
-                        </textarea>
-                    </section>
-                </section>
-
-                <section>
-                    <section data-markdown>
-                        <textarea data-template>
                             ## Deploys mas complicados
 
                             ![Deploy](https://media.giphy.com/media/CDZwopbecAbIc/giphy.gif)
@@ -371,7 +305,75 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Monitoreo de logs
+                            ## Llamados externos
+
+                            ![call](https://media.giphy.com/media/o2V3s21kb9jPO/giphy.gif)
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
+                                import {calculatePrice} from '../deliveryService'
+                                
+                                export function cartTotal(items, deliveryType) {
+                                    return _.sum(items, i => i.price) +
+                                        calculatePrice(items, deliveryType);
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Introducción de **ASINCRONISMO**
+
+                            donde antes no lo había
+
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers="3,5">
+                                import {calculatePrice} from '../deliveryService'
+
+                                export function async cartTotal(items, deliveryType) {
+                                    return _.sum(items, i => i.price) +
+                                        await calculatePrice(items, deliveryType);
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+                  
+                    <section data-markdown>
+                        <textarea data-template>
+                            Introducción de **ERRORES**
+
+                            donde antes no lo había
+
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
+                                import {calculatePrice} from '../deliveryService'
+
+                                export function async cartTotal(items, deliveryType) {
+                                    try {
+                                        let deliveryPrice = await calculatePrice(
+                                            items,
+                                            deliveryType
+                                        );
+
+                                        return _.sum(items, i => i.price) +
+                                            deliveryPrice;
+                                    } catch (err) {
+                                        throw new CartDependencyError(err);
+                                    }
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Introducción de **OVERHEAD y LAG**
+
+                            donde antes no lo había
+
+                            ![lag](https://media.giphy.com/media/M5bYG7WvKuLSw/giphy.gif)
                         </textarea>
                     </section>
                 </section>
@@ -379,10 +381,91 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
+                            ## Dependencia de componentes externos
+                        </textarea>
+                    </section>
 
+                    <section data-markdown>
+                        <textarea data-template>
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
+                                import {cartTotal} from '../cartCalculator'
+
+                                export function async checkoutSummary(req, res, next) {
+                                    ...
+                                    let total = await cartTotal(items, deliveryType);
+                                    return res.json({
+                                        total 
+                                    });
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
+                                import {cartTotal} from '../cartCalculator'
+
+                                export function async checkoutSummary(req, res, next) {
+                                    ...
+                                    try {
+                                        let total = await cartTotal(items, deliveryType);
+                                    } catch (err) {
+                                        ????
+                                    }
+
+                                    return res.json({
+                                        total
+                                    });
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Hacerse siempre la pregunta
+                            
+                            > ¿Qué pasa si el otro servicio no esta en linea?
                         </textarea>
                     </section>
                 </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Desnormalizacion de datos
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ![monit](./images/storage/storage-example.png)  
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ![monit](./images/storage/storage-bounding-context.png)  
+                        </textarea>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Sincronizacion de datos
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ![monit](./images/sync/sync-example.png)  
+                        </textarea>
+                    </section>
+                </section>
+
 
                 <section>
                     <section data-markdown>
