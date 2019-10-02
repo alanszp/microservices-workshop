@@ -7,23 +7,267 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/css/monokai.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js"></script>
+    <style>
+        .reveal .slides section img {
+            border: none;
+            box-shadow: none;
+        }
+    </style>
 </head>
 <body>
     <div class="reveal">
         <div class="slides">
-            <section>Slide 1</section>
-            <section>Slide 2</section>
+                <section data-markdown data-background-color="#000" data-background-image="https://media.giphy.com/media/l2Jhy8MIvBe8tmKK4/giphy.gif">
+                    <textarea data-template>
+                        ## Lo que no te contaron de microservicios
+                        
+                        ~~Lo bueno~~ y **lo malo**
+
+                        with ❤️ by Alan Szpigiel 
+                    </textarea>
+                </section>
+
+                <section data-markdown>
+                    <textarea data-template>
+                        ![Alan Szpigiel](https://avatars2.githubusercontent.com/u/4085136?s=300&u=5cc463896003ef60a41e6d4c2ca7b584c1055a37&v=4)
+
+                        @alanszp | Alan Szpigiel
+
+                        [linkedin](https://www.linkedin.com/in/alanszp/) - [github](https://github.com/alanszp) - [instagram](https://www.instagram.com/alanszp)
+                    </textarea>
+                </section>
+
+                <section data-markdown data-background-color="#fff">
+                    <textarea data-template>
+                        ![Trocafone](./images/troca.png)
+
+                        working @ Trocafone
+
+                        Eng. Manager
+                    </textarea>
+                </section>
+
+                <section data-markdown data-background-color="#fff">
+                    <textarea data-template>
+                        <p><img src="./images/flag.gif" alt="Trocafone"></p>
+                        
+                        <p style="font-weight: bold">comprar &gt; refurbish &gt; <span class="fragment highlight-current-blue"">vender</span></p>
+                    </textarea>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # ¿Qué son los microservicios?
+
+                            https://blog.knoldus.com/why-do-you-always-choose-microservices-over-me-said-the-monolithic-architecture/
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            # PONER ALGO TODO
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # ¿Existen otras alternativas?
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Monolito TODO
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Monolito TODO
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # ¿Por qué esta tan de moda?
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            # TODO
+                        </textarea>
+                    </section>
+                </section>
+
+
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Por ejemplo...
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Monolito
+                            
+                            <img src="./images/example/monolith-example.png"/>
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Microservico
+
+                            <img src="./images/example/microservice-example.png"/>
+                        </textarea>
+                    </section>
+                </section>
+
+
+                <section data-markdown>
+                    <textarea data-template>
+                        Algo malo tiene que tener...
+
+                        ![Evil](http://giphygifs.s3.amazonaws.com/media/RG4IXFG1YmLOU/giphy.gif)
+                    </textarea>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Llamados externos
+
+                            ![call](https://media.giphy.com/media/o2V3s21kb9jPO/giphy.gif)
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
+                                import {calculatePrice} from '../deliveryService'
+                                
+                                export function cartTotal(items, deliveryType) {
+                                    return _.sum(items, i => i.price) +
+                                        calculatePrice(items, deliveryType);
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Introducción de **ASINCRONISMO**
+
+                            donde antes no lo había
+
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers="3,5">
+                                import {calculatePrice} from '../deliveryService'
+
+                                export function async cartTotal(items, deliveryType) {
+                                    return _.sum(items, i => i.price) +
+                                        await calculatePrice(items, deliveryType);
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+                  
+                    <section data-markdown>
+                        <textarea data-template>
+                            Introducción de **ERRORES**
+
+                            donde antes no lo había
+
+                            <pre><code data-trim data-noescape class="hljs javascript" data-line-numbers>
+                                import {calculatePrice} from '../deliveryService'
+
+                                export function async cartTotal(items, deliveryType) {
+                                    try {
+                                        let deliveryPrice = await calculatePrice(
+                                            items,
+                                            deliveryType
+                                        );
+
+                                        return _.sum(items, i => i.price) +
+                                            deliveryPrice;
+                                    } catch (err) {
+                                        throw new CartDependencyError(err);
+                                    }
+                                }
+                            </code></pre>
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Deploys mas complicados
+
+                            ![Deploy](https://media.giphy.com/media/CDZwopbecAbIc/giphy.gif)
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            > Quiero agregar en cuanto tiempo va a llegar el envio
+                        </textarea>
+                    </section>
+
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            > Quiero agregar en cuanto tiempo va a llegar el envio
+
+                            > ... pero que quede guardado, para saber luego si lo envie correctamente
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Monolito
+
+                            ![monolito](./images/complex-deploys/complex-deploys-monolith.png)
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Microservicios
+
+                            ![monolito](./images/complex-deploys/complex-deploys-microservices.png)
+                        </textarea>
+                    </section>
+                </section>
         </div>
     </div>
 
     <script>
       Reveal.initialize({
+        progress: true,
+        hash: true,
         dependencies: [
           { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/marked.js' },
           { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/markdown.min.js' },
           { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/notes/notes.min.js', async: true },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/highlight/highlight.min.js', async: true },
         ]
       });
     </script>
