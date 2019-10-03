@@ -66,16 +66,22 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            # ¿Qué son los microservicios?
-
-                            https://blog.knoldus.com/why-do-you-always-choose-microservices-over-me-said-the-monolithic-architecture/
+                            ## ¿Qué son los microservicios?
                         </textarea>
                     </section>
 
 
                     <section data-markdown>
                         <textarea data-template>
-                            # PONER ALGO TODO
+                            > Componentes chicos y enfocados en hacer una cosa bien
+
+                            Building Microservices de Sam Newman
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Autonomos
                         </textarea>
                     </section>
                 </section>
@@ -83,7 +89,64 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            # ¿Existen otras alternativas?
+                            ## ¿Por qué esta tan de moda?
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Elección de tecnologías
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Si algo falla, no se rompe TODO
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Escalar las partes que necesitamos
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Escalar y deployar las partes que necesitamos
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Reutilizar y componer
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Facilidad de reemplazarlos
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Mejorar el trabajo entre equipos de gran tamaño
+                        </textarea>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## ¿Existen otras alternativas?
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Monolito
                         </textarea>
                     </section>
 
@@ -92,29 +155,7 @@
                             # Monolito TODO
                         </textarea>
                     </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            # Monolito TODO
-                        </textarea>
-                    </section>
                 </section>
-
-                <section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            # ¿Por qué esta tan de moda?
-                        </textarea>
-                    </section>
-
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            # TODO
-                        </textarea>
-                    </section>
-                </section>
-
 
 
                 <section>
@@ -476,10 +517,313 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
+                            ## Consultas complejas </br> entre DBs
 
+                            ![datascience](https://media.giphy.com/media/3osxYc2axjCJNsCXyE/giphy.gif)
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            En monolito
+
+                            <pre><code data-trim data-noescape class="hljs sql" data-line-numbers>
+                                SELECT orders.id, payments.installments
+                                FROM orders
+                                LEFT JOIN payments ON payments.id = order.payment_id
+                            </code></pre>
+                        </textarea>
+                    </section>
+
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Con Microservicios
+                            <pre><code data-trim data-noescape class="hljs sql" data-line-numbers>
+                                SELECT orders.id, order.payment_reference
+                                FROM orders
+                            </code></pre>
+
+                            <pre><code data-trim data-noescape class="hljs sql" data-line-numbers>
+                                SELECT payments.id, payments.installments
+                                FROM payments
+                            </code></pre>
+                            
+                            Joineamos la data a mano o en excel?
+                        </textarea>
+                    </section>
+
+                </section>
+
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Jungla de tecnologias y formas de hacer las cosas
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ![monit](./images/estandarization/estandarization-example.png)
                         </textarea>
                     </section>
                 </section>
+
+
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            Entonces, ¿los monolitos son mejores?
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            El monolito por algo se llama monolito...
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Dificil de organizarnos a medida que crece
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Fuerza a trabajar todo en la misma tecnologia, donde a veces no es la mas optima para la tarea
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            No se puede escalar por partes
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Si se hace un cambio en la parte de pagos, se tiene que compilar y deployar todo
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Poco reutilizable para otros propósitos
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Lleva a generar pocas/peores abstracciones, por no tener la necesidad
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            No nos fuerza a separar los dominios, generando acoplamiento
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Todo esto suma a que se genere mas déuda tecnica
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Por el acoplamiento y la deuda técnica, cada vez es mas complicado agregar funcionalidades nuevas
+                        </textarea>
+                    </section>
+                </section>
+
+
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            Me marié, ¿con qué me quedo?
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown>
+                        <textarea data-template>
+                            La respuesta no es simple y depende del problema
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Como todo, no hay silver bullet
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Entender las ventajas y desventajas que hablamos antes de cada uno de los approachs 
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            A nivel general
+
+                            > Comenzar con un Monolito y transicionar de a poco a Microservicios
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Buenas practicas para construir Microservicios
+
+                            ![good-practices](https://media.giphy.com/media/fQGf2FTKayOnKjwidV/giphy.gif)
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Equipo
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Equipos cross-funcionales y no organizados por áreas de expertise
+
+                            ![team-organization](./images/team-org/team-org-both-sides.png)
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Ownership del equipo sobre su dominio
+
+                            ![ownership](https://media.giphy.com/media/FrnpqArQZtti8/giphy.gif)
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Equipos chicos
+
+                            <img style="max-width: 350px;" src="https://media.giphy.com/media/xUA7aP8hOW80VnoFAk/giphy.gif"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            El equipo cubra todo el ciclo de desarrollo
+
+                            ![full-cycle](./images/full-cycle/soft-life-cycle.png)
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Mapear 1 a 1 los stakeholders con los equipos
+
+                            ![ownership](https://media.giphy.com/media/sFK74luzYFhzG/giphy.gif)
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Proceso
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Definición, estandarización y automatización de pipelines de delivery
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            El equipo es owner del deploy
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            El diseño de una feature comience con una interfaz
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Testear las interfaces con test de integración
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Mock de las interfaces
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            ETLs para los equipos de DataScience y BI
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Tecnologia
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown>
+                        <textarea data-template>
+                            No tener un zoo de tecnologías que pocos conozcan
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown>
+                        <textarea data-template>
+                            Librerías comunes para la misma tecnología
+                        </textarea>
+                    </section>
+                    
+                    <section data-markdown>
+                        <textarea data-template>
+                            Trackear el flujo distribuido con lifecycle/trace/flow ID, pasandolo de servicio a servicio 
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            No olvidarse que el frontend tambien puede convertirse en un monolito
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Tratar a los servidores/instancias/containters como ganado y no como mascotas
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            No zarparse con la palabra MICRO
+
+                            > Cuanto más micro son los servicios, más aumentan las ventajas y desventajas
+                        </textarea>
+                    </section>
+                </section>
+
         </div>
     </div>
 
