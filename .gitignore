@@ -2,3 +2,5 @@
 **/.DS_Store
 *.iml
 **/node_modules
+**/dist
+**/logs

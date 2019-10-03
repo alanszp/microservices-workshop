@@ -1,0 +1,89 @@
+{
+  "name": "calculator-edge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:alanszp/microservice-workshop.git",
+  "author": "Alan Szpigiel <alanszp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "NODE_ENV=test node_modules/.bin/nyc mocha",
+    "start": "./node_modules/.bin/pm2 start dist/start.js --name invoice-api --no-daemon",
+    "start-dev": "./node_modules/.bin/pm2 start dist/start.js --watch dist --name invoice-api --no-daemon --source-map-support",
+    "dev": "npm run build && ./node_modules/.bin/concurrently --kill-others \"npm run compile-watch\" \"npm run start-dev\"",
+    "stop": "./node_modules/.bin/pm2 stop invoice-api",
+    "restart": "./node_modules/.bin/pm2 reload invoice-api",
+    "compile": "./node_modules/.bin/tsc",
+    "compile-watch": "./node_modules/.bin/tsc -w",
+    "build": "yarn run copy-files && yarn run compile",
+    "lint": "./node_modules/.bin/tslint 'src/**/*.ts' --project 'tsconfig.json'",
+    "status": "./node_modules/.bin/pm2 status",
+    "copy-files": "./node_modules/gulp/bin/gulp.js copy-files",
+    "cleanup": "./node_modules/gulp/bin/gulp.js cleanup"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.20",
+    "@types/body-parser": "^1.16.8",
+    "@types/convict": "^4.1.1",
+    "@types/express": "^4.11.1",
+    "@types/lodash": "^4.14.108",
+    "@types/mocha": "^5.1.0",
+    "@types/node": "^9.6.5",
+    "@types/request-promise": "^4.1.41",
+    "concurrently": "^3.5.1",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "factory-girl": "^5.0.2",
+    "mocha": "^4.1.0",
+    "nyc": "^11.7.1",
+    "pm2": "^2.9.1",
+    "reflect-metadata": "^0.1.12",
+    "run-sequence": "^2.2.1",
+    "source-map-support": "^0.5.4",
+    "ts-node": "^6.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1",
+    "typescript-eslint-parser": "^15.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "convict": "^4.0.2",
+    "cuid": "^2.0.2",
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "lodash": "^4.17.10",
+    "morgan": "^1.9.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "require-tree": "^1.1.1",
+    "tv4": "1.2.7"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx",
+      ".js"
+    ],
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "lcov"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
+  }
+}

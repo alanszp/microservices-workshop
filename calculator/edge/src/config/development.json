@@ -1,0 +1,6 @@
+{
+  "log": {
+    "console_level": "trace",
+    "file_level": "trace"
+  }
+}

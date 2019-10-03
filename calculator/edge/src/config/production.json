@@ -1,0 +1,7 @@
+{
+    "log": {
+        "console_level": "info",
+        "file_level": "info"
+    },
+    "port": 80
+}

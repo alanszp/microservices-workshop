@@ -1,0 +1,7 @@
+{
+    "log": {
+        "console_level": "debug",
+        "file_level": "debug"
+    },
+    "port": 80
+}

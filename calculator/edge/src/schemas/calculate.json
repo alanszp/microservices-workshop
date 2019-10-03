@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "city": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/city",
+      "type": "string",
+      "examples": [
+        "Rio de Janeiro"
+      ]
+    },
+    "district": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/district",
+      "type": "string",
+      "examples": [
+        "Centro"
+      ]
+    },
+    "country": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/country",
+      "type": "string",
+      "examples": [
+        "Brazil"
+      ]
+    },
+    "complement": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/complement",
+      "type": "string",
+      "examples": [
+        "Teste de complemento"
+      ]
+    },
+    "number": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/number",
+      "type": "string",
+      "examples": [
+        "12123"
+      ]
+    },
+    "zip_code": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/zip_code",
+      "type": "string",
+      "examples": [
+        "12123321"
+      ]
+    },
+    "state_code": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/state_code",
+      "type": "string",
+      "examples": [
+        "RJ"
+      ]
+    },
+    "state": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/state",
+      "type": "string",
+      "examples": [
+        "Rio de Janeiro"
+      ]
+    },
+    "street": {
+      "$id": "/properties/order_information/properties/buyer/properties/address/properties/street",
+      "type": "string",
+      "examples": [
+        "Rua de Teste"
+      ]
+    }
+  },
+  "required": ["city","district", "country", "number", "zip_code", "state_code", "state", "street"]
+}
