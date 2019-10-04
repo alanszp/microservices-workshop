@@ -8,7 +8,7 @@ info:
     name: Computation Microservice API Definition 
     url: 'http://localhost'
   description: |
-    Description of Calculator API.
+    Description of every computation API definitions.
   title: Calculator Edge API
   version: 1.0.0
 produces:
