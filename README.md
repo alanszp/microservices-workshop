@@ -1,6 +1,6 @@
-# microservice-workshop
+# microservices-workshop
 
-In this workshop we will get the idea of the pros & cons of microservices
+En este workshop vamos a explorar los pros & cons de los MicroServicios
 
 [🎯 Presentation](./presentation)
 
