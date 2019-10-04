@@ -1,9 +1,9 @@
-# Microservice Workshop
+# microservice-workshop
 
 In this workshop we will get the idea of the pros & cons of microservices
 
-[Presentation](./presentation)
+[🎯 Presentation](./presentation)
 
-[edge-doc](./calculator/edge-doc)
+[🤹‍♀️ Edge API Docs](./calculator/edge-doc)
 
-[executors-doc](./calculator/executors-doc)
+[⚒ Executors API Docs](./calculator/executors-doc)
