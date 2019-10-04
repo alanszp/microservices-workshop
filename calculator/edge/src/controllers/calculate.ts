@@ -5,6 +5,8 @@ import {requestToExpressionMapper} from "../mappers/requestToExpressionMapper";
 import errorView from "../views/error_view";
 import NoAvailableExecutorError from "../errors/no_available_executor_error";
 import ValidationError from "../errors/validation_error";
+import ComputationError from "../errors/computation_error";
+import ApiClientError from "../errors/api_client_errors/api_client_error";
 
 export default class CalculateController {
 
@@ -14,9 +16,7 @@ export default class CalculateController {
         try {
             const expression: Expression = requestToExpressionMapper(req.body);
             const result = await executeExpression(expression);
-            return res.status(200).json({
-                result: result
-            });
+            return res.status(200).json(result);
         }
         catch (error) {
             req.log.error('calculate_controller.register_executor.error', {
@@ -31,12 +31,15 @@ export default class CalculateController {
                 return res.status(400).json(errorView(error));
             }
 
-            if (error._renderableError) {
-                return res.status(500).json(errorView(error));
+            if (error instanceof ComputationError) {
+                return res.status(424).json(errorView(error));
             }
 
-            return res.status(500).json({error: 'sorry, me rompi'});
+            if (error instanceof ApiClientError) {
+                return res.status(424).json(errorView(error));
+            }
 
+            throw error;
         }
     }
 

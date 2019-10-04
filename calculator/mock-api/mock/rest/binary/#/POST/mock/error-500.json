@@ -1,0 +1,7 @@
+{
+    "code": "internal_error",
+    "message": "Internal error",
+    "context": {},
+    "origin": "any-binary-api:development",
+    "devMessage": "Internal error"
+}

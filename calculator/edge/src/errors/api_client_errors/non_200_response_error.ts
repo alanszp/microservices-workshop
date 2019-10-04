@@ -1,7 +1,6 @@
-import RenderableError from "../renderable_error";
 import ApiClientError from "./api_client_error";
 
-export default class ThirdPartyNon200ResponseError extends ApiClientError {
+export default class Non200ResponseError extends ApiClientError {
 
     public renderMessage() {
         return "The request has caused an error in the third party service.";

@@ -18,6 +18,10 @@ export default abstract class ApiClientError extends BaseError implements Render
     public abstract code();
     public abstract devMessage();
 
+    public getError() {
+        return this.error;
+    }
+
     public context() {
         return {
             requestContext: this.requestContext,

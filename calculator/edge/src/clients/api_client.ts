@@ -44,7 +44,7 @@ export class ApiClient {
 
     public getDefaults(): ApiClientConfiguration {
         return {
-            timeout: 30000,
+            timeout: 10000,
             json: true,
         };
     }
