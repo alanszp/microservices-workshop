@@ -1,0 +1,78 @@
+swagger: '2.0'
+schemes:
+  - https
+host: localhost
+basePath: /tenant/v1
+info:
+  contact:
+    name: Computation Microservice API Definition 
+    url: 'http://localhost'
+  description: |
+    Description of Calculator API.
+  title: Calculator Edge API
+  version: 1.0.0
+produces:
+  - application/json
+
+tags:
+  - description: Compute expressions
+    name: compute
+  - description: Are you alive?
+    name: health-check
+paths:
+  '/compute-binary':
+    post:
+      description: |
+        Defines the interface of the compute endpoint which every microservice will implementt.
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: request
+          required: true
+          schema:
+            $ref: '#/definitions/BinaryExpressionRequest'
+      responses:
+        '200':
+          description: Register successfully
+          schema:
+            $ref: '#/definitions/BinaryExpressionResponse'
+      tags:
+        - compute
+
+  '/utils/health':
+    get:
+      description: |
+        Are you alive?
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        '200':
+          description: I'm alive!
+      tags:
+        - health-check
+definitions:
+  BinaryExpressionRequest:
+    description: Definition of a binary expression
+    properties:
+      left:
+        type: number
+        example: 5
+      right:
+        type: number
+        example: 10.45
+    type: object
+
+
+
+  BinaryExpressionResponse:
+    description: Response of a computation
+    properties:
+      result:
+        type: number
+        example: 15.45
+    type: object
