@@ -19,12 +19,11 @@ export default class ExecutorController {
                 error
             });
 
-            if (error._renderableError) {
-                return res.status(500).json(errorView(error));
+            if (error instanceof ValidationError) {
+                return res.status(400).json(errorView(error));
             }
 
-            return res.status(500).json({error: 'sorry, me rompi'});
-
+            throw error;
         }
     }
 

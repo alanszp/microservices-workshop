@@ -8,7 +8,7 @@ import ValidationError from "../errors/validation_error";
 import ComputationError from "../errors/computation_error";
 import ApiClientError from "../errors/api_client_errors/api_client_error";
 
-export default class CalculateController {
+export default class CalculationsController {
 
     public static async calculate(req: Request, res: Response, next: NextFunction) {
         req.log.info('calculate_controller.calculate', { body: req.body });

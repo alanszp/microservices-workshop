@@ -1,0 +1,151 @@
+swagger: '2.0'
+schemes:
+  - https
+host: localhost
+basePath: /tenant/v1
+info:
+  contact:
+    name: Calculator Edge API 
+    url: 'http://localhost'
+  description: |
+    Description of Calculator API.
+  title: Calculator Edge API
+  version: 1.0.0
+produces:
+  - application/json
+
+tags:
+  - description: Manage expression executors
+    name: executors
+  - description: Execute calculations
+    name: calculations
+  - description: Are you alive?
+    name: health-check
+paths:
+  '/executors':
+    post:
+      description: |
+        Register a new executor in the API
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: request
+          required: true
+          schema:
+            $ref: '#/definitions/Executor'
+      responses:
+        '201':
+          description: Register successfully
+        '400':
+          description: Validation error
+      tags:
+        - executors
+  '/calculations':
+    post:
+      description: |
+        Execute an expression
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: body
+          name: request
+          required: true
+          schema:
+            $ref: '#/definitions/ExpressionCalculationRequest'
+      responses:
+        '200':
+          description: Calculation succeed
+          schema:
+            $ref: '#/definitions/ExpressionCalculationResponse'
+        '400':
+          description: Validation error
+        '424':
+          description: Executor had a problem. Please, retry.
+        '429':
+          description: No available executors for that command
+      tags:
+        - calculations
+
+  '/utils/health':
+    get:
+      description: |
+        Are you alive?
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        '200':
+          description: I'm alive!
+      tags:
+        - health-check
+definitions:
+  ExpressionType:
+    description: Type of expression
+    enum:
+      - binary
+    type: string
+
+  Operand:
+    description: Valid operands
+    enum:
+      - sum
+      - multiply
+    type: string
+
+  BinaryExpression:
+    description: Definition of a binary expression
+    properties:
+      left:
+        type: number
+        example: 5
+      right:
+        type: number
+        example: 10.45
+    type: object
+
+  Executor:
+    description: Definition of a execution
+    properties:
+      url:
+        type: url
+        description: URL to forward the calculation request
+        example: 'http://example.com/compute'
+      name:
+        description: Name of the executor who will compute the expression
+        type: string
+        example: 'api-de-alan'
+      operand:
+        description: Operand which can be computed
+        $ref: '#/definitions/Operand'
+    type: object
+
+  ExpressionCalculationRequest:
+    description: Request to compute an expression
+    properties:
+      expressionType:
+        $ref: '#/definitions/ExpressionType'
+      expression:
+        description: Expression to be computed
+        $ref: '#/definitions/BinaryExpression'
+      operand:
+        description: Operand which can be computed
+        $ref: '#/definitions/Operand'
+    type: object
+
+  ExpressionCalculationResponse:
+    description: Request to compute an expression
+    properties:
+      result:
+        type: number
+        example: 15.45
+      name:
+        description: Name of the executor who computed the expression
+        type: 'string'
+        example: 'api-de-alan'
+    type: object
