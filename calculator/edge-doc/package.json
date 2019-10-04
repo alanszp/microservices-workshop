@@ -4,7 +4,7 @@
   "description": "edge api doc",
   "scripts": {
     "dev": "npx redoc-cli serve --watch edge-doc.yaml",
-    "build": "npx redoc-cli build edge-doc.yaml"
+    "build": "npx redoc-cli bundle -o index.html edge-doc.yaml"
   },
   "author": "Alan Szpigiel",
   "license": "ISC"
