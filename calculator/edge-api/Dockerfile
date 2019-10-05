@@ -11,7 +11,7 @@ WORKDIR /opt/calculator-edge-api
 
 VOLUME /opt/calculator-edge-api/logs
 
-RUN apk add --update
+RUN apk add --update && \
     yarn install && \
     yarn run build
 
