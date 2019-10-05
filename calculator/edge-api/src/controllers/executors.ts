@@ -3,6 +3,7 @@ import {Executor} from "../models/executor";
 import {requestToExecutorMapper} from "../mappers/requestToExecutorMapper";
 import {registerExecutor} from "../services/executorService";
 import errorView from "../views/error_view";
+import ValidationError from "../errors/validation_error";
 
 export default class ExecutorController {
 

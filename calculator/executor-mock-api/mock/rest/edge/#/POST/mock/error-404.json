@@ -1,0 +1,7 @@
+{
+    "code": "not_found",
+    "message": "Not Found",
+    "context": {},
+    "origin": "any-binary-api:development",
+    "devMessage": "Not Found"
+}
