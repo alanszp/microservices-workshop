@@ -7,7 +7,7 @@
     "target": "es6",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "types" : [ "node", "mocha", "chai-as-promised" ]
+    "types" : [ "node", "mocha"]
   },
   "include": [
     "src/**/*"
