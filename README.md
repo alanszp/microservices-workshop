@@ -7,3 +7,5 @@ En este workshop vamos a explorar los pros & cons de los MicroServicios
 [🤹‍♀️ Edge API Docs](./calculator/edge-doc)
 
 [⚒ Executors API Docs](./calculator/executors-doc)
+
+[📝 Features a implementar](./features)
