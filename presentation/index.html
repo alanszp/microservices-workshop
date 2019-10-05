@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Microservices Workshop</title>
 
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.ico"/>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.min.css">
@@ -27,7 +29,7 @@
         <div class="slides">
                 <section data-markdown data-background-color="#000" data-background-image="https://media.giphy.com/media/l2Jhy8MIvBe8tmKK4/giphy.gif">
                     <textarea data-template>
-                        ## Lo que no te contaron de microservicios
+                        ## Lo que no te contaron de Microservicios
                         
                         Lo bueno y **lo malo**
 
@@ -66,7 +68,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## ¿Qué son los microservicios?
+                            ## ¿Qué son los Microservicios?
                         </textarea>
                     </section>
 
@@ -508,7 +510,7 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                            En monolito
+                            Con un Monolito
 
                             <pre><code data-trim data-noescape class="hljs sql" data-line-numbers>
                                 SELECT orders.id, payments.installments
@@ -543,6 +545,8 @@
                     <section data-markdown>
                         <textarea data-template>
                             ## Jungla de tecnologías y formas de hacer las cosas
+
+                            <img src="https://media.giphy.com/media/v1Wk4bFq0nX1e/giphy.gif"/>
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -589,61 +593,69 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            Entonces, ¿los Monolitos son mejores?
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            Difícil de organizarnos a medida que crece
+                            Entonces, ¿es mejor trabajar con un Monolito?
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             Fuerza a trabajar todo en la misma tecnología,<br/> donde a veces no es la más óptima para la tarea
+
+                            <img src="./images/monolith-disadvantages/technology.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Si algo falla, deja de funcionar TODO
+
+                            <img src="./images/monolith-disadvantages/failures.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             No se puede escalar por partes
+
+                            <img src="./images/monolith-disadvantages/escalar.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Si se hace un cambio en la parte de pagos, se tiene que compilar y deployar todo
+                            Si se hace un cambio en un dominio, se tiene que compilar y deployar todo junto
+
+                            <img src="./images/monolith-disadvantages/deploy.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Poco reutilizable para otros propósitos
+                            Difícil de organizarnos a medida que crece
+
+                            <img src="./images/monolith-disadvantages/org.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Lleva a generar pocas/peores abstracciones, por no tener la necesidad
+                            No nos fuerza a separar los dominios
+
+                            > Genera acoplamiento
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            No nos fuerza a separar los dominios, generando acoplamiento
+                            Tiende a generarse <br/> más **deuda técnica**
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Todo esto suma a que se genere más deuda técnica
-                        </textarea>
-                    </section>
+                            Acoplamiento + Deuda técnica
 
-                    <section data-markdown>
-                        <textarea data-template>
-                            Por el acoplamiento y la deuda técnica, cada vez es más complicado agregar funcionalidades nuevas
+                            > Más complicado agregar funcionalidades nuevas
                         </textarea>
                     </section>
                 </section>
@@ -660,12 +672,8 @@
                     <section data-markdown>
                         <textarea data-template>
                             La respuesta no es simple y depende del problema
-                        </textarea>
-                    </section>
 
-                    <section data-markdown>
-                        <textarea data-template>
-                            Como todo, no hay una respuesta mágica
+                            > No hay una única respuesta correcta
                         </textarea>
                     </section>
 
@@ -679,7 +687,7 @@
                         <textarea data-template>
                             A nivel general
 
-                            > Comenzar con un Monolito y de a poco a ir a Microservicios
+                            > Comenzar con un Monolito y <br/> de a poco a ir a Microservicios
                         </textarea>
                     </section>
                 </section>
@@ -820,7 +828,7 @@
                         <textarea data-template>
                             Librerías comunes para la misma tecnología
 
-                            <img src="./images/process/etl.png"/>
+                            <img src="./images/tech/shared-library.png"/>
                         </textarea>
                     </section>
                     
@@ -828,15 +836,15 @@
                         <textarea data-template>
                             Trackear el flujo distribuido con lifecycle/trace/flow ID, pasandolo de servicio a servicio
 
-                            <img src="./images/process/etl.png"/>
+                            <img src="https://media.giphy.com/media/pyl1E9trnmwdW/giphy.gif"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            No olvidarse que el frontend tambien puede convertirse en un monolito
+                            No olvidarse que el frontend tambien puede convertirse en un Monolito
 
-                            <img src="./images/process/etl.png"/>
+                            <img style="max-width: 350px;" src="./images/tech/front.png"/>
                         </textarea>
                     </section>
 
@@ -844,7 +852,8 @@
                         <textarea data-template>
                             Utilizar JSON schemas y OpenAPI para documentar las APIs
 
-                            <img src="./images/process/etl.png"/>
+                            <img style="max-width: 150px; display: inline-block;" src="./images/tech/json-schema.jpeg"/>
+                            <img style="max-width: 150px; display: inline-block;" src="./images/tech/open-api.png"/>
                         </textarea>
                     </section>
 
@@ -860,9 +869,7 @@
 
 
                 <section>
-                    <section data-markdown data-background-image="https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif">
-                            <textarea data-template>
-                            </textarea>
+                    <section data-background-image="https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif">
                     </section>
                 </section>
 
@@ -876,7 +883,7 @@
         dependencies: [
           { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/marked.js' },
           { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/markdown.min.js' },
-          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/notes/notes.min.js', async: true },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/notes/notes.js', async: true },
           { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/highlight/highlight.min.js', async: true },
         ]
       });
