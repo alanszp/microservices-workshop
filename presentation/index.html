@@ -59,7 +59,7 @@
                     <textarea data-template>
                         <p><img src="./images/flag.gif" alt="Trocafone"></p>
                         
-                        <p style="font-weight: bold">comprar &gt; refurbish &gt; <span class="fragment highlight-current-blue"">vender</span></p>
+                        <p style="font-weight: bold">comprar &gt; refurbish &gt; <span class="fragment highlight-current-blue">vender</span></p>
                     </textarea>
                 </section>
 
@@ -73,7 +73,16 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                             Forma de construir una aplicación como un conjunto de pequeños servicios
+                            <img style="max-width: 150px" src="./images/wiki.png"/>
+
+                            Forma de construir una aplicación como un conjunto de pequeños servicios
+
+                         </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Cada servicio se encarga de implementar un dominio
                         </textarea>
                     </section>
 
@@ -82,118 +91,121 @@
                              Se ejecutan en su propio proceso y se comunican por APIs
                         </textarea>
                     </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            Cada servicio se encarga de implementar un dominio
-                        </textarea>
-                    </section>
                 </section>
 
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## ¿Por qué esta tan de moda?
+                            ## ¿Qué es un Monolito?
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            ## Elección de tecnologías
+                            <img style="max-width: 150px" src="./images/wiki.png"/>
+
+                            Una aplicación contenida completamente en un codebase
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            ## Si algo falla, no se rompe TODO
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Escalar las partes que necesitamos
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Escalar y deployar las partes que necesitamos
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Reutilizar y componer
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Facilidad de reemplazarlos
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Mejorar el trabajo entre equipos de gran tamaño
+                            Es responsable de todos los pasos necesarios para completar la funcionalidad de la aplicación
                         </textarea>
                     </section>
                 </section>
 
-
-                <section>
-                    <section data-markdown>
+            <section>
+                <section data-markdown>
                         <textarea data-template>
-                            ## Lo viejo
-                        </textarea>
-                    </section>
+                            Por ejemplo...
 
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Monolito
+                            # Checkout
                         </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            Una aplicacion contenida completamente en un codebase
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            Es responsable de todos los pasos necesarios para completar funcionalidad de la aplicación
-                        </textarea>
-                    </section>
                 </section>
 
 
-                <section>
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Por ejemplo...
-                        </textarea>
-                    </section>
-
-
-                    <section data-markdown>
+                <section data-markdown>
                         <textarea data-template>
                             Monolito
-                            
+
                             <img src="./images/example/monolith-example.png"/>
                         </textarea>
-                    </section>
+                </section>
 
 
-                    <section data-markdown>
+                <section data-markdown>
                         <textarea data-template>
                             Microservico
 
                             <img src="./images/example/microservice-example.png"/>
                         </textarea>
+                </section>
+            </section>
+
+
+            <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## ¿Por qué está tan de moda?
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Elección de tecnologías
+
+                            <img src="./images/advantages/technologies.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Si algo falla no se rompe TODO
+
+                            <img src="./images/advantages/failures.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Escalar los componentes que necesitamos
+                            <img src="./images/advantages/escalate.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Deployar los componentes que cambiaron
+
+                            <img src="./images/advantages/deploy.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Reutilizar y componer
+
+                            <img src="./images/advantages/reutilizar.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Facilidad de reemplazarlos
+
+                            <img src="./images/advantages/reemplazar.png"/>
+                        </textarea>
+                    </section>
+
+                    <section data-markdown>
+                        <textarea data-template>
+                            Mejorar el trabajo entre equipos grandes
+
+                            <img src="./images/advantages/big-teams.png"/>
+                        </textarea>
                     </section>
                 </section>
-
 
                 <section data-markdown>
                     <textarea data-template>
@@ -206,7 +218,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Deploys mas complicados
+                            ## Deploys más complicados
 
                             ![Deploy](https://media.giphy.com/media/CDZwopbecAbIc/giphy.gif)
                         </textarea>
@@ -214,7 +226,7 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                            > Quiero agregar en cuanto tiempo va a llegar el envio
+                            > Quiero agregar en cuánto tiempo va a llegar el envío
                         </textarea>
                     </section>
 
@@ -222,9 +234,9 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                            > Quiero agregar en cuanto tiempo va a llegar el envio
+                            > Quiero agregar en cuánto tiempo va a llegar el envío
 
-                            > ... pero que quede guardado, para saber luego si lo envie a tiempo
+                            > ... pero que quede guardado, para saber luego si lo envié a tiempo
                         </textarea>
                     </section>
 
@@ -258,19 +270,13 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                            ![microservicio](./images/logs/log-monolith.png)
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
                             ![microservicio](./images/logs/log-flow.png)
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Mucho mas complejo co-relacionar los logs
+                            Mucho más complejo co-relacionar los logs
 
                             ![microservicio](./images/logs/log-correlation.png)
                         </textarea>
@@ -445,7 +451,7 @@
                         <textarea data-template>
                             Hacerse siempre la pregunta
                             
-                            > ¿Qué pasa si el otro servicio no esta en linea?
+                            > ¿Qué pasa si el otro servicio no está en línea?
                         </textarea>
                     </section>
                 </section>
@@ -476,7 +482,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Sincronizacion de datos
+                            ## Sincronización de datos
 
                             ![sync](https://media.giphy.com/media/c8Idooow6NHiw/giphy.gif)
                         </textarea>
@@ -536,7 +542,7 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            ## Jungla de tecnologias y formas de hacer las cosas
+                            ## Jungla de tecnologías y formas de hacer las cosas
                         </textarea>
                     </section>
                     <section data-markdown>
@@ -560,7 +566,7 @@
                             Regla básica
 
                             > Mayor cantidad de componentes, </br>
-                            mas complejo el sistema
+                            más complejo el sistema
                         </textarea>
                     </section>
 
@@ -575,7 +581,7 @@
                             Regla básica
 
                             > Mayor cantidad de componentes, </br>
-                            mas complejo el sistema
+                            más complejo el sistema
                         </textarea>
                     </section>
                 </section>
@@ -583,19 +589,19 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            Entonces, ¿los monolitos son mejores?
+                            Entonces, ¿los Monolitos son mejores?
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Dificil de organizarnos a medida que crece
+                            Difícil de organizarnos a medida que crece
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Fuerza a trabajar todo en la misma tecnologia, donde a veces no es la mas optima para la tarea
+                            Fuerza a trabajar todo en la misma tecnología,<br/> donde a veces no es la más óptima para la tarea
                         </textarea>
                     </section>
 
@@ -631,13 +637,13 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                            Todo esto suma a que se genere mas déuda tecnica
+                            Todo esto suma a que se genere más deuda técnica
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            Por el acoplamiento y la deuda técnica, cada vez es mas complicado agregar funcionalidades nuevas
+                            Por el acoplamiento y la deuda técnica, cada vez es más complicado agregar funcionalidades nuevas
                         </textarea>
                     </section>
                 </section>
@@ -659,7 +665,7 @@
 
                     <section data-markdown>
                         <textarea data-template>
-                            Como todo, no hay silver bullet
+                            Como todo, no hay una respuesta mágica
                         </textarea>
                     </section>
 
@@ -673,7 +679,17 @@
                         <textarea data-template>
                             A nivel general
 
-                            > Comenzar con un Monolito y transicionar de a poco a Microservicios
+                            > Comenzar con un Monolito y de a poco a ir a Microservicios
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ### Ejercico
+
+                            # Calculadora
                         </textarea>
                     </section>
                 </section>
@@ -715,7 +731,7 @@
                         <textarea data-template>
                             Equipos chicos
 
-                            <img style="max-width: 350px;" src="https://media.giphy.com/media/xUA7aP8hOW80VnoFAk/giphy.gif"/>
+                            <img style="max-width: 350px;" src="./images/team-org/pizza.png"/>
                         </textarea>
                     </section>
 
@@ -724,14 +740,6 @@
                             El equipo cubra todo el ciclo de desarrollo
 
                             ![full-cycle](./images/full-cycle/soft-life-cycle.png)
-                        </textarea>
-                    </section>
-
-                    <section data-markdown>
-                        <textarea data-template>
-                            Mapear 1 a 1 los stakeholders con los equipos
-
-                            ![ownership](https://media.giphy.com/media/sFK74luzYFhzG/giphy.gif)
                         </textarea>
                     </section>
                 </section>
@@ -746,42 +754,49 @@
                     <section data-markdown>
                         <textarea data-template>
                             Definición, estandarización y automatización de pipelines de delivery
+
+                            <img style="max-width: 350px;" src="./images/process/jenkins.jpeg"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            El equipo es owner del deploy
-                        </textarea>
-                    </section>
+                            Iniciar el diseño de una feature la interfaz
 
-                    <section data-markdown>
-                        <textarea data-template>
-                            El diseño de una feature comience con una interfaz
+                            <img src="./images/process/interface.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             Testear las interfaces con test de integración
+
+                            <img style="max-width: 150px; display: inline-block;" src="./images/process/jmeter.svg"/>
+                            <img style="max-width: 150px; display: inline-block;" src="./images/process/postman.jpg"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             Mock de las interfaces
+
+                            <img src="./images/process/spiderman.jpg"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             Tratar a los servidores/instancias/containters como ganado y no como mascotas
+
+                            <img src="./images/process/cattle-pet.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
-                            ETLs para los equipos de Reporting
+                            Presto + ETLs para los equipos de Reporting
+
+                            <img src="./images/process/etl.png"/>
                         </textarea>
                     </section>
                 </section>
@@ -789,37 +804,47 @@
                 <section>
                     <section data-markdown>
                         <textarea data-template>
-                            # Tecnologia
+                            # Tecnología
                         </textarea>
                     </section>
                     
                     <section data-markdown>
                         <textarea data-template>
                             No tener un zoo de tecnologías que pocos conozcan
+
+                            <img src="./images/tech/jungle.jpeg"/>
                         </textarea>
                     </section>
                     
                     <section data-markdown>
                         <textarea data-template>
                             Librerías comunes para la misma tecnología
+
+                            <img src="./images/process/etl.png"/>
                         </textarea>
                     </section>
                     
                     <section data-markdown>
                         <textarea data-template>
-                            Trackear el flujo distribuido con lifecycle/trace/flow ID, pasandolo de servicio a servicio 
+                            Trackear el flujo distribuido con lifecycle/trace/flow ID, pasandolo de servicio a servicio
+
+                            <img src="./images/process/etl.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             No olvidarse que el frontend tambien puede convertirse en un monolito
+
+                            <img src="./images/process/etl.png"/>
                         </textarea>
                     </section>
 
                     <section data-markdown>
                         <textarea data-template>
                             Utilizar JSON schemas y OpenAPI para documentar las APIs
+
+                            <img src="./images/process/etl.png"/>
                         </textarea>
                     </section>
 
@@ -829,6 +854,15 @@
 
                             > Cuanto más micro son los servicios, más aumentan las ventajas y desventajas
                         </textarea>
+                    </section>
+                </section>
+
+
+
+                <section>
+                    <section data-markdown data-background-image="https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif">
+                            <textarea data-template>
+                            </textarea>
                     </section>
                 </section>
 
