@@ -95,7 +95,10 @@ definitions:
     description: Valid operands
     enum:
       - sum
+      - subtract
       - multiply
+      - division
+      - percentage
     type: string
 
   BinaryExpression:

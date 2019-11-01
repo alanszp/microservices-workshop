@@ -50,6 +50,7 @@
     "bunyan": "^1.8.12",
     "bunyan-format": "^0.2.1",
     "convict": "^4.0.2",
+    "cors": "^2.8.5",
     "cuid": "^2.0.2",
     "express": "^4.16.2",
     "gulp": "^4",

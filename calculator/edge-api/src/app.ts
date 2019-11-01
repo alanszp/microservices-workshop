@@ -15,6 +15,8 @@ import errorView from "./views/error_view";
 import InternalServerError from "./errors/http/internal_server_error";
 import NotFoundError from "./errors/http/not_found_error";
 
+import cors from "./middlewares/cors";
+
 class App {
     public express: any;
 
@@ -40,6 +42,8 @@ class App {
     public addRootMiddleware() {
         log.trace("configure_middleware", {message: "Configuring middleware"});
         this.express.use(bodyParser.json());
+        this.express.use(cors);
+
         this.express.use(trocaContext);
     }
 
